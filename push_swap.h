@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:48:58 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/16 12:16:23 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/16 13:11:55 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 // DEBUGGING
 # include <stdio.h>
 // ENDDEBUGGNIG
-
 typedef enum e_op
 {
 	OP_SA,
@@ -34,7 +33,6 @@ typedef enum e_op
 	OP_RRB,
 	OP_RRR,
 	OP_COUNT,
-
 }			t_op;
 
 typedef enum e_flags
@@ -79,8 +77,17 @@ int			ft_isdigit(int c);
 size_t		ft_strlen(const char *s);
 char		*ft_substr(char *str, unsigned int start, size_t len);
 int			*ft_split(char *str, size_t *count_out);
+
 // utils extra
 size_t		token_count(const char *s);
+
+// ops utils
+
+void		pushes(t_stack *from, t_stack *to);
+void		stack_pushes(t_ps *ps, t_op code);
+void		stack_swaps(t_ps *ps, t_op code);
+void		stack_rotations(t_ps *ps, t_op code);
+void		stack_rrotations(t_ps *ps, t_op code);
 // parsing
 int			parse_flags(int ac, char **av, t_ps *ps);
 int			parse_string(int ac, char **av, t_ps *ps);
