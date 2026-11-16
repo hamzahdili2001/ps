@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:48:58 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/16 10:04:39 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/16 12:16:23 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,24 @@
 // DEBUGGING
 # include <stdio.h>
 // ENDDEBUGGNIG
+
+typedef enum e_op
+{
+	OP_SA,
+	OP_SB,
+	OP_SS,
+	OP_PA,
+	OP_PB,
+	OP_RA,
+	OP_RB,
+	OP_RR,
+	OP_RRA,
+	OP_RRB,
+	OP_RRR,
+	OP_COUNT,
+
+}			t_op;
+
 typedef enum e_flags
 {
 	MODE_NONE,
@@ -42,6 +60,9 @@ typedef struct s_ps
 	t_stack	b;
 	int		mode;
 	int		bench;
+	size_t	ops_count;
+	size_t	op_counts[OP_COUNT];
+	int		silent;
 }			t_ps;
 // init
 void		ps_init(t_ps *ps);
@@ -69,4 +90,8 @@ int			parse_args(int ac, char **av, t_ps *ps);
 void		stack_push(t_stack *s, int v);
 int			stack_get(t_stack *s, int index);
 int			stack_allocate(t_stack *s, size_t cap);
+int			stack_pop(t_stack *s);
+void		stack_swap(t_stack *s);
+void		stack_rotate(t_stack *s);
+void		stack_rrotate(t_stack *s);
 #endif
