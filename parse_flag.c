@@ -6,13 +6,13 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:58:57 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/15 12:08:21 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/16 16:49:31 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_isflag(char *s)
+int	ft_isflag(char *s)
 {
 	return (s[0] == '-' && s[1] == '-');
 }
@@ -41,9 +41,9 @@ int	parse_flags(int ac, char **av, t_ps *ps)
 	int	i;
 
 	i = 1;
-	while (i < ac && ft_isflag(av[i]))
+	while (i < ac)
 	{
-		if (apply_flag(av[i], ps) < 0)
+		if (ft_isflag(av[i]) && apply_flag(av[i], ps) < 0)
 			return (-1);
 		i++;
 	}
