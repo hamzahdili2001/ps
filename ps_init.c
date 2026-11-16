@@ -6,11 +6,22 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 10:10:04 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/15 10:32:35 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/16 13:18:47 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	stack_allocate(t_stack *s, size_t cap)
+{
+	s->data = malloc(sizeof(int) * cap);
+	if (!(s->data))
+		return (-1);
+	s->cap = cap;
+	s->head = 0;
+	s->size = 0;
+	return (0);
+}
 
 void	ps_init(t_ps *ps)
 {

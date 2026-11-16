@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 14:30:08 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/15 15:41:46 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/16 14:12:52 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,14 @@ int	*ft_split(char *str, size_t *count_out)
 	i = 0;
 	while (*str)
 	{
-		if (!ft_isspace(*str))
-		{
-			token = ft_substr(str, 0, token_len(str));
-			if (!token)
-				return (free(arr), NULL);
-			if (ft_atoi(token, &arr[i]) < 0)
-				return (free(token), free(arr), NULL);
-			str += token_len(str);
-			i++;
-		}
-		else
-			str++;
+		if (ft_isspace(*str++))
+			continue ;
+		str--;
+		token = ft_substr(str, 0, token_len(str));
+		if (!token || ft_atoi(token, &arr[i++]) < 0)
+			return (free(token), free(arr), NULL);
+		str += token_len(str);
+		free(token);
 	}
 	*count_out = (size_t)i;
 	return (arr);
