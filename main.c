@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:40:43 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/17 09:24:24 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/17 09:31:33 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(int ac, char **av)
 	}
 	else
 	{
+		/*
 		i = 0;
 		while (i < ps->a.size)
 			printf("%d ", stack_get(&ps->a, i++));
@@ -36,7 +37,9 @@ int	main(int ac, char **av)
 		printf("cap: %ld\n", ps->a.cap);
 		printf("mode: %d\n", ps->mode);
 		printf("---------OP-------\n");
+		*/
 		sort_simple(ps);
+		/*
 		printf("------------------\n");
 		i = 0;
 		while (i < ps->a.size)
@@ -44,6 +47,7 @@ int	main(int ac, char **av)
 		printf("\nsize: %ld\n", ps->a.size);
 		printf("cap: %ld\n", ps->a.cap);
 		printf("mode: %d\n", ps->mode);
+		*/
 	}
 	free(ps);
 	return (0);

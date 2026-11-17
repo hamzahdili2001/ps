@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 15:38:27 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/16 16:58:22 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/17 09:44:16 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ static int	fill_ints(int ac, char **av, t_stack *s)
 			nums = ft_split(av[i], &count);
 			if (!nums)
 				return (-1);
-			k = 0;
-			while (k < count)
-				stack_push(s, nums[k++]);
+			k = count;
+			while (k > 0)
+				stack_push(s, nums[--k]);
 			free(nums);
 		}
 		i++;
