@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 15:42:05 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/16 13:19:46 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/17 10:43:14 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -35,4 +35,14 @@ size_t	token_count(const char *s)
 int	stack_get(t_stack *s, int index)
 {
 	return (s->data[(s->head + index) % s->cap]);
+}
+
+int	ft_sqrt(int n)
+{
+	int	i;
+
+	i = 1;
+	while (i * i <= n)
+		i++;
+	return (i - 1);
 }

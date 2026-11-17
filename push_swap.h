@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:48:58 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/16 16:54:33 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/17 10:43:55 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ size_t		ft_strlen(const char *s);
 char		*ft_substr(char *str, unsigned int start, size_t len);
 int			*ft_split(char *str, size_t *count_out);
 int			ft_isflag(char *s);
+int			ft_sqrt(int n);
 
 // utils extra
 size_t		token_count(const char *s);
