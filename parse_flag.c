@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:58:57 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/16 16:49:31 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/17 09:55:39 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,11 @@ int	parse_flags(int ac, char **av, t_ps *ps)
 	i = 1;
 	while (i < ac)
 	{
-		if (ft_isflag(av[i]) && apply_flag(av[i], ps) < 0)
-			return (-1);
+		if (ft_isflag(av[i]))
+		{
+			if (apply_flag(av[i], ps) < 0)
+				return (-1);
+		}
 		i++;
 	}
 	return (i);
