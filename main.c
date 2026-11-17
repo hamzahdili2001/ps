@@ -6,13 +6,14 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:40:43 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/17 09:31:33 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/17 13:05:01 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 void	sort_simple(t_ps *ps);
+void	sort_medium(t_ps *ps);
 int	main(int ac, char **av)
 {
 	t_ps	*ps;
@@ -38,7 +39,7 @@ int	main(int ac, char **av)
 		printf("mode: %d\n", ps->mode);
 		printf("---------OP-------\n");
 		*/
-		sort_simple(ps);
+		sort_medium(ps);
 		/*
 		printf("------------------\n");
 		i = 0;

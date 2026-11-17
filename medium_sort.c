@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 10:35:21 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/17 10:49:09 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/17 12:54:42 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 static int	find_max_index(t_stack *s)
 {
 	int	i;
-	int	min_idx;
+	int	max_idx;
 
 	i = 1;
-	min_idx = 0;
+	max_idx = 0;
 	while (i < (int)s->size)
 	{
-		if (stack_get(s, i) > stack_get(s, min_idx))
-			min_idx = i;
+		if (stack_get(s, i) > stack_get(s, max_idx))
+			max_idx = i;
 		i++;
 	}
-	return (min_idx);
+	return (max_idx);
 }
 
 void	bring_max_to_top(t_ps *ps)
@@ -47,7 +47,7 @@ void	bring_max_to_top(t_ps *ps)
 	}
 	else
 	{
-		i = size - max_idx;
+		i = (int)size - max_idx;
 		while (i > 0)
 		{
 			op(ps, OP_RRB);
@@ -82,6 +82,40 @@ void	assign_ranks(t_stack *a)
 	}
 	i = 0;
 	while (i < (int)a->size)
+	{
 		a->data[(a->head + i) % a->cap] = ranks[i];
+		i++;
+	}
 	free(ranks);
+}
+
+void	sort_medium(t_ps *ps)
+{
+	int	range;
+	int	pushed;
+	int	x;
+	int	n;
+
+	n = (int)ps->a.size;
+	assign_ranks(&ps->a);
+	range = ft_sqrt(n) * 3 / 2;
+	pushed = 0;
+	while (ps->a.size > 0)
+	{
+		x = stack_get(&ps->a, 0);
+		if (x <= pushed + range)
+		{
+			op(ps, OP_PB);
+			if (x <= pushed && ps->b.size > 1)
+				op(ps, OP_RB);
+			pushed++;
+		}
+		else
+			op(ps, OP_RA);
+	}
+	while (ps->b.size > 0)
+	{
+		bring_max_to_top(ps);
+		op(ps, OP_PA);
+	}
 }
