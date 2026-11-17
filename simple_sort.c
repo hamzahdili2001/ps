@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 15:56:54 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/16 16:13:32 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/17 09:12:03 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,62 @@ void	bring_min_to_top(t_ps *ps)
 			i--;
 		}
 	}
+}
+
+void	sort_2(t_ps *ps)
+{
+	int	a;
+	int	b;
+
+	a = stack_get(&ps->a, 0);
+	b = stack_get(&ps->b, 1);
+	if (b < a)
+		op(ps, OP_RA);
+}
+
+void	sort_3(t_ps *ps)
+{
+	int	a;
+	int	b;
+	int	c;
+
+	a = stack_get(&ps->a, 0);
+	b = stack_get(&ps->a, 1);
+	c = stack_get(&ps->a, 2);
+	if (a > b && b < c && a < c)
+		op(ps, OP_SA);
+	else if (a > b && b > c && a > c)
+	{
+		op(ps, OP_SA);
+		op(ps, OP_RRA);
+	}
+	else if (a > b && b < c && a > c)
+		op(ps, OP_RA);
+	else if (a < b && b > c && a < c)
+	{
+		op(ps, OP_SA);
+		op(ps, OP_RA);
+	}
+	else if (a < b && b > c && a > c)
+		op(ps, OP_RRA);
+}
+
+void	sort_small(t_ps *ps)
+{
+	if (ps->a.size == 2)
+		sort_2(ps);
+	if (ps->a.size == 3)
+		sort_3(ps);
+}
+
+void	sort_simple(t_ps *ps)
+{
+	while (ps->a.size > 3)
+	{
+		bring_min_to_top(ps);
+		op(ps, OP_PB);
+	}
+	sort_small(ps);
+	while (ps->b.size > 0)
+		op(ps, OP_PA);
 }

@@ -6,13 +6,13 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:40:43 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/16 16:19:20 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/17 09:24:24 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	bring_min_to_top(t_ps *ps);
+void	sort_simple(t_ps *ps);
 int	main(int ac, char **av)
 {
 	t_ps	*ps;
@@ -36,7 +36,7 @@ int	main(int ac, char **av)
 		printf("cap: %ld\n", ps->a.cap);
 		printf("mode: %d\n", ps->mode);
 		printf("---------OP-------\n");
-		bring_min_to_top(ps);
+		sort_simple(ps);
 		printf("------------------\n");
 		i = 0;
 		while (i < ps->a.size)
