@@ -6,12 +6,11 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 10:35:21 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/18 11:11:36 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/19 11:56:46 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <math.h>
 
 static int	find_max_index(t_stack *s)
 {
@@ -59,19 +58,19 @@ void	bring_max_to_top(t_ps *ps)
 
 void	sort_medium(t_ps *ps)
 {
-	int	chunk_size;
+	int	range;
 	int	pushed;
 	int	x;
 	int	n;
 
 	n = (int)ps->a.size;
 	assign_ranks(&ps->a);
-	chunk_size = (ft_sqrt(n) * 3) / 2;
+	range = (ft_sqrt(n) * 3) / 2;
 	pushed = 0;
 	while (ps->a.size > 0)
 	{
 		x = stack_get(&ps->a, 0);
-		if (x <= pushed + chunk_size)
+		if (x <= pushed + range)
 		{
 			op(ps, OP_PB);
 			if (x <= pushed && ps->b.size > 1)
