@@ -15,6 +15,8 @@ void	rank(t_stack *s, int *ranks)
 {
 	int	i;
 
+	if (!ranks)
+		return ;
 	i = 0;
 	while (i < (int)s->size)
 	{
