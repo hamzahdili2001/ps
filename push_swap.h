@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:48:58 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/17 10:43:55 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/18 11:12:19 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,6 @@ int			stack_pop(t_stack *s);
 void		stack_swap(t_stack *s);
 void		stack_rotate(t_stack *s);
 void		stack_rrotate(t_stack *s);
+// algo
+void		assign_ranks(t_stack *a);
 #endif

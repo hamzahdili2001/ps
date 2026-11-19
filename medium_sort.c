@@ -6,11 +6,12 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 10:35:21 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/17 12:54:42 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/18 11:11:36 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <math.h>
 
 static int	find_max_index(t_stack *s)
 {
@@ -56,54 +57,21 @@ void	bring_max_to_top(t_ps *ps)
 	}
 }
 
-void	assign_ranks(t_stack *a)
-{
-	int	*ranks;
-	int	i;
-	int	j;
-	int	count;
-
-	ranks = malloc(sizeof(int) * a->size);
-	if (!ranks)
-		return ;
-	i = 0;
-	while (i < (int)a->size)
-	{
-		count = 0;
-		j = 0;
-		while (j < (int)a->size)
-		{
-			if (j != i && stack_get(a, j) < stack_get(a, i))
-				count++;
-			j++;
-		}
-		ranks[i] = count;
-		i++;
-	}
-	i = 0;
-	while (i < (int)a->size)
-	{
-		a->data[(a->head + i) % a->cap] = ranks[i];
-		i++;
-	}
-	free(ranks);
-}
-
 void	sort_medium(t_ps *ps)
 {
-	int	range;
+	int	chunk_size;
 	int	pushed;
 	int	x;
 	int	n;
 
 	n = (int)ps->a.size;
 	assign_ranks(&ps->a);
-	range = ft_sqrt(n) * 3 / 2;
+	chunk_size = (ft_sqrt(n) * 3) / 2;
 	pushed = 0;
 	while (ps->a.size > 0)
 	{
 		x = stack_get(&ps->a, 0);
-		if (x <= pushed + range)
+		if (x <= pushed + chunk_size)
 		{
 			op(ps, OP_PB);
 			if (x <= pushed && ps->b.size > 1)
