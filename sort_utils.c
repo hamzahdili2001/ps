@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 14:45:14 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/19 14:52:36 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/19 15:06:43 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -25,7 +25,7 @@ void	rank(t_stack *s, int *ranks)
 	}
 }
 
-void	assign_ranks(t_stack *a)
+int	assign_ranks(t_stack *a)
 {
 	int	*ranks;
 	int	i;
@@ -34,7 +34,7 @@ void	assign_ranks(t_stack *a)
 
 	ranks = malloc(sizeof(int) * a->size);
 	if (!ranks)
-		return ;
+		return (-1);
 	i = 0;
 	while (i < (int)a->size)
 	{
@@ -51,6 +51,7 @@ void	assign_ranks(t_stack *a)
 	}
 	rank(a, ranks);
 	free(ranks);
+	return (0);
 }
 
 int	is_sorted(t_ps *ps)

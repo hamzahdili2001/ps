@@ -64,7 +64,8 @@ void	sort_medium(t_ps *ps)
 	int	n;
 
 	n = (int)ps->a.size;
-	assign_ranks(&ps->a);
+	if (assign_ranks(&ps->a) < 0)
+		return ;
 	range = (ft_sqrt(n) * 3) / 2;
 	pushed = 0;
 	while (ps->a.size > 0)

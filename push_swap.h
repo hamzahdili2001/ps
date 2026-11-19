@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:48:58 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/19 14:45:55 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/19 15:07:43 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void		stack_rotate(t_stack *s);
 void		stack_rrotate(t_stack *s);
 // algo
 int			is_sorted(t_ps *ps);
-void		assign_ranks(t_stack *a);
+int			assign_ranks(t_stack *a);
 void		sort_simple(t_ps *ps);
 void		sort_medium(t_ps *ps);
 #endif
