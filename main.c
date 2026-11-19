@@ -6,17 +6,16 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:40:43 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/17 13:05:01 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/19 14:53:54 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_simple(t_ps *ps);
-void	sort_medium(t_ps *ps);
 int	main(int ac, char **av)
 {
 	t_ps	*ps;
+	t_flags	*flag;
 	int		i;
 
 	ps = malloc(sizeof(t_ps));
@@ -28,28 +27,12 @@ int	main(int ac, char **av)
 		ft_putendl_fd("Error", 1);
 		return (-1);
 	}
-	else
-	{
-		/*
-		i = 0;
-		while (i < ps->a.size)
-			printf("%d ", stack_get(&ps->a, i++));
-		printf("\nsize: %ld\n", ps->a.size);
-		printf("cap: %ld\n", ps->a.cap);
-		printf("mode: %d\n", ps->mode);
-		printf("---------OP-------\n");
-		*/
+	if (is_sorted(ps) == 0)
+		return (1);
+	if (ps->mode == MODE_SIMPLE)
+		sort_simple(ps);
+	if (ps->mode == MODE_MEDIUM)
 		sort_medium(ps);
-		/*
-		printf("------------------\n");
-		i = 0;
-		while (i < ps->a.size)
-			printf("%d ", stack_get(&ps->a, i++));
-		printf("\nsize: %ld\n", ps->a.size);
-		printf("cap: %ld\n", ps->a.cap);
-		printf("mode: %d\n", ps->mode);
-		*/
-	}
 	free(ps);
 	return (0);
 }
