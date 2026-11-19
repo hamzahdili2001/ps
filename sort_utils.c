@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 14:45:14 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/19 15:06:43 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/19 15:11:58 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -57,18 +57,12 @@ int	assign_ranks(t_stack *a)
 int	is_sorted(t_ps *ps)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	while (i < ps->a.size)
+	while (i + 1 < ps->a.size)
 	{
-		j = i + 1;
-		while (j < ps->a.size)
-		{
-			if (stack_get(&ps->a, i) > stack_get(&ps->a, j))
-				return (-1);
-			j++;
-		}
+		if (stack_get(&ps->a, i) > stack_get(&ps->a, i + 1))
+			return (-1);
 		i++;
 	}
 	return (0);
