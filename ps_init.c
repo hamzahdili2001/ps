@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 10:10:04 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/16 13:18:47 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/19 15:17:35 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,11 @@ void	ps_init(t_ps *ps)
 	ps->b.size = 0;
 	ps->bench = 0;
 	ps->mode = MODE_NONE;
+}
+
+void	free_ps(t_ps *ps)
+{
+	free(ps->a.data);
+	free(ps->b.data);
+	free(ps);
 }

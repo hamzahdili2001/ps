@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:48:58 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/19 15:07:43 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/19 15:17:48 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef struct s_ps
 }			t_ps;
 // init
 void		ps_init(t_ps *ps);
+void		free_ps(t_ps *ps);
 // output
 void		ft_putchar_fd(int c, int fd);
 void		ft_putstr_fd(char *s, int fd);
