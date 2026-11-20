@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:40:43 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/20 17:19:41 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 17:40:00 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	main(int ac, char **av)
 	if (parse_args(ac, av, ps) < 0)
 	{
 		free_ps(ps);
-		ft_putendl_fd("Error", 1);
+		ft_putendl_fd("Error", 2);
 		return (-1);
 	}
 	if (is_sorted(ps) == 0)

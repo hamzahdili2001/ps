@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 13:37:30 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/20 17:27:22 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 17:36:53 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	print_disorder(t_ps *ps)
 
 static void	print_strategy(t_ps *ps)
 {
-	static const char *const names[] = {"", "Simple O(n)", "Medium O(n√n)",
+	static const char *const names[] = {"", "Simple O(n²)", "Medium O(n√n)",
 		"Complex O(n log n)"};
 	ft_putstr_fd("[bench] strategy: ", 2);
 	if (ps->adaptive == 1)
@@ -44,13 +44,14 @@ static void	print_strategy(t_ps *ps)
 
 static void	print_counts(t_ps *ps, int from, int to)
 {
-	static const char *const OP_NAME[OP_COUNT] = {"sa", "sb", "ss", "pa", "pb",
-		"ra", "rb", "rr", "rra", "rrb", "rrr"};
+	static const char	*op_name[OP_COUNT] = {"sa", "sb", "ss", "pa", "pb",
+			"ra", "rb", "rr", "rra", "rrb", "rrr"};
+
 	ft_putstr_fd("[bench]", 2);
 	while (from <= to)
 	{
 		ft_putstr_fd(" ", 2);
-		ft_putstr_fd(OP_NAME[from], 2);
+		ft_putstr_fd(op_name[from], 2);
 		ft_putstr_fd(": ", 2);
 		ft_putnbr_fd(ps->op_counts[from], 2);
 		from++;
