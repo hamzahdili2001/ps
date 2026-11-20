@@ -6,11 +6,28 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:40:43 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/19 15:15:31 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 11:32:13 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	sort_dispatch(t_ps *ps)
+{
+	if (ps->mode == MODE_SIMPLE)
+		sort_simple(ps);
+	if (ps->mode == MODE_MEDIUM)
+	{
+		if (sort_medium(ps) < 0)
+			return (-1);
+	}
+	if (ps->mode == MODE_COMPLEX)
+	{
+		if (sort_complex(ps) < 0)
+			return (-1);
+	}
+	return (0);
+}
 
 int	main(int ac, char **av)
 {
@@ -29,9 +46,7 @@ int	main(int ac, char **av)
 	}
 	if (is_sorted(ps) == 0)
 		return (free_ps(ps), 0);
-	if (ps->mode == MODE_SIMPLE)
-		sort_simple(ps);
-	if (ps->mode == MODE_MEDIUM)
-		sort_medium(ps);
+	if (sort_dispatch(ps) < 0)
+		return (free_ps(ps), 0);
 	return (free_ps(ps), 0);
 }

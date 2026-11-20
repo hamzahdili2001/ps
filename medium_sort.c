@@ -56,7 +56,7 @@ void	bring_max_to_top(t_ps *ps)
 	}
 }
 
-void	sort_medium(t_ps *ps)
+int	sort_medium(t_ps *ps)
 {
 	int	range;
 	int	pushed;
@@ -65,7 +65,7 @@ void	sort_medium(t_ps *ps)
 
 	n = (int)ps->a.size;
 	if (assign_ranks(&ps->a) < 0)
-		return ;
+		return (-1);
 	range = (ft_sqrt(n) * 3) / 2;
 	pushed = 0;
 	while (ps->a.size > 0)
@@ -86,4 +86,5 @@ void	sort_medium(t_ps *ps)
 		bring_max_to_top(ps);
 		op(ps, OP_PA);
 	}
+	return (0);
 }
