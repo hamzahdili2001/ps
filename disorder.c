@@ -16,13 +16,13 @@ static double	compute_disorder(t_ps *ps)
 {
 	double	mistakes;
 	double	total_pairs;
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
 
 	mistakes = 0;
 	total_pairs = 0;
 	i = 0;
-	if (ps->a.size < 0)
+	if (ps->a.size < 2)
 		return (0.0);
 	while (i < ps->a.size)
 	{
@@ -46,14 +46,14 @@ int	mode_adaptive(t_ps *ps)
 	disorder = compute_disorder(ps);
 	if (disorder < 0.2)
 		sort_simple(ps);
-	else if (disorder <= 0.2 || disorder < 0.5)
+	else if (disorder < 0.5)
 	{
-		if (sort_medium(ps) < -1)
+		if (sort_medium(ps) < 0)
 			return (-1);
 	}
 	else
 	{
-		if (sort_complex(ps) < -1)
+		if (sort_complex(ps) < 0)
 			return (-1);
 	}
 	return (0);
