@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:48:58 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/20 16:19:52 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 16:45:35 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ typedef enum e_op
 
 typedef enum e_flags
 {
-	MODE_NONE,
-	MODE_SIMPLE,
-	MODE_ADAPTIVE,
-	MODE_MEDIUM,
-	MODE_COMPLEX,
+	MODE_NONE = 0,
+	MODE_SIMPLE = 1,
+	MODE_ADAPTIVE = 2,
+	MODE_MEDIUM = 3,
+	MODE_COMPLEX = 4,
 }			t_flags;
 
 typedef struct s_stack
@@ -58,6 +58,7 @@ typedef struct s_ps
 	t_stack	b;
 	int		mode;
 	int		bench;
+	int		adaptive;
 	size_t	ops_count;
 	size_t	op_counts[OP_COUNT];
 	int		silent;

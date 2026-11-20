@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:58:57 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/17 09:55:39 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 16:47:33 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,12 @@ static int	apply_flag(char *s, t_ps *ps)
 {
 	if (ft_strcmp(s, "--bench") == 0)
 		return (ps->bench = 1, 0);
-	if (ps->mode != MODE_NONE)
-		return (-1);
+	if (ft_strcmp(s, "--adaptive") == 0)
+		return (ps->adaptive = 1, 0);
 	if (ft_strcmp(s, "--simple") == 0)
 		ps->mode = MODE_SIMPLE;
 	else if (ft_strcmp(s, "--medium") == 0)
 		ps->mode = MODE_MEDIUM;
-	else if (ft_strcmp(s, "--adaptive") == 0)
-		ps->mode = MODE_ADAPTIVE;
 	else if (ft_strcmp(s, "--complex") == 0)
 		ps->mode = MODE_COMPLEX;
 	else
@@ -50,6 +48,8 @@ int	parse_flags(int ac, char **av, t_ps *ps)
 		}
 		i++;
 	}
+	if (ps->mode == MODE_NONE)
+		ps->mode = MODE_ADAPTIVE;
 	return (i);
 }
 

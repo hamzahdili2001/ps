@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 10:10:04 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/20 15:47:53 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 16:45:10 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ps_init(t_ps *ps)
 	ps->bench = 0;
 	ps->mode = MODE_NONE;
 	ps->disorder = 0.0;
+	ps->adaptive = 0;
 }
 
 void	free_ps(t_ps *ps)

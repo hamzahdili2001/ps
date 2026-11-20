@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 13:37:30 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/20 16:03:23 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 16:39:56 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	print_disorder(t_ps *ps)
 
 	precentage = ps->disorder * 100;
 	decimal = (long)precentage;
-	fraction = (long)(precentage - decimal) * 100;
+	fraction = (long)((precentage - decimal) * 100);
 	ft_putstr_fd("[bench] disorder: ", 2);
 	ft_putnbr_fd(decimal, 2);
 	ft_putchar_fd('.', 2);
@@ -30,12 +30,12 @@ static void	print_disorder(t_ps *ps)
 
 static void	print_strategy(t_ps *ps)
 {
-	static const char *const names[] = {"none", "Simple O(n)", "Adaptive",
+	static const char *const names[] = {"NONE", "Simple O(n)", "Adaptive",
 		"Medium O(n√n)", "Complex O(n log n)"};
 	ft_putstr_fd("[bench] strategy: ", 2);
-	if (ps->mode == MODE_ADAPTIVE)
+	if (ps->adaptive == 1)
 	{
-		ft_putstr_fd(names[MODE_ADAPTIVE], 2);
+		ft_putstr_fd("Adaptive", 2);
 		ft_putstr_fd(" / ", 2);
 	}
 	ft_putstr_fd(names[ps->mode], 2);
