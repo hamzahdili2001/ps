@@ -6,13 +6,13 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 11:44:36 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/20 10:34:31 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 12:47:38 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_max_bit(int n)
+static int	get_max_bit(int n)
 {
 	int	max_rank;
 	int	max_bit;

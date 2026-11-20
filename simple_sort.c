@@ -28,7 +28,7 @@ static int	find_min_index(t_stack *s)
 	return (min_idx);
 }
 
-void	bring_min_to_top(t_ps *ps)
+static void	bring_min_to_top(t_ps *ps)
 {
 	size_t	size;
 	int		min_idx;
@@ -56,7 +56,7 @@ void	bring_min_to_top(t_ps *ps)
 	}
 }
 
-void	sort_2(t_ps *ps)
+static void	sort_2(t_ps *ps)
 {
 	int	a;
 	int	b;
@@ -67,7 +67,7 @@ void	sort_2(t_ps *ps)
 		op(ps, OP_RA);
 }
 
-void	sort_3(t_ps *ps)
+static void	sort_3(t_ps *ps)
 {
 	int	a;
 	int	b;

@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 10:35:21 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/19 11:56:46 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 12:47:56 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	find_max_index(t_stack *s)
 	return (max_idx);
 }
 
-void	bring_max_to_top(t_ps *ps)
+static void	bring_max_to_top(t_ps *ps)
 {
 	size_t	size;
 	int		max_idx;

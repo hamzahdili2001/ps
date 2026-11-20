@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 11:45:02 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/20 11:45:02 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 13:04:49 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ double	compute_disorder(t_stack *s)
 	i = 0;
 	while (i < s->size)
 	{
-		i = i + 1;
+		j = i + 1;
 		while (j < s->size)
 		{
 			total_pairs += 1;
-			if (stack_get(s, i) > stack_get(s, i))
+			if (stack_get(s, i) > stack_get(s, j))
 				mistakes += 1;
 			j++;
 		}
