@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_adaptive.c                                    :+:      :+:    :+:   */
+/*   adaptive_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 11:45:02 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/20 13:28:26 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 15:14:37 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,27 +36,30 @@ static double	compute_disorder(t_ps *ps)
 		}
 		i++;
 	}
+	ps->inversion = total_pairs;
 	return (mistakes / total_pairs);
 }
 
+void			print_bench(t_ps *ps);
 int	mode_adaptive(t_ps *ps)
 {
-	double	disorder;
-
-	disorder = compute_disorder(ps);
-	if (disorder < 0.2)
+	ps->disorder = compute_disorder(ps);
+	if (ps->disorder < 0.2)
 	{
 		sort_simple(ps);
+		print_bench(ps);
 	}
-	else if (disorder < 0.5)
+	else if (ps->disorder < 0.5)
 	{
 		if (sort_medium(ps) < 0)
 			return (-1);
+		print_bench(ps);
 	}
 	else
 	{
 		if (sort_complex(ps) < 0)
 			return (-1);
+		print_bench(ps);
 	}
 	return (0);
 }

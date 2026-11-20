@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:48:58 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/20 13:17:38 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 15:15:21 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ typedef struct s_ps
 	size_t	ops_count;
 	size_t	op_counts[OP_COUNT];
 	int		silent;
+	double	disorder;
+	int		inversion;
 }			t_ps;
 // init
 void		ps_init(t_ps *ps);
@@ -69,6 +71,7 @@ void		free_ps(t_ps *ps);
 void		ft_putchar_fd(int c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putendl_fd(char *s, int fd);
+void		ft_putnbr_fd(long n, int fd);
 
 // utils
 int			ft_strcmp(char *s1, char *s2);
