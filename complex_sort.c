@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 11:44:36 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/20 12:47:38 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 13:23:47 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static int	get_max_bit(int n)
 	int	max_rank;
 	int	max_bit;
 
+	max_bit = 0;
 	max_rank = n - 1;
 	while (max_rank > 0)
 	{
