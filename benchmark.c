@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 13:37:30 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/20 17:36:53 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 17:51:04 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,16 @@ static void	print_disorder(t_ps *ps)
 	ft_putstr_fd("[bench] disorder: ", 2);
 	ft_putnbr_fd(decimal, 2);
 	ft_putchar_fd('.', 2);
+	if (fraction < 10)
+		ft_putchar_fd('0', 2);
 	ft_putnbr_fd(fraction, 2);
 	ft_putstr_fd("%\n", 2);
 }
 
 static void	print_strategy(t_ps *ps)
 {
-	static const char *const names[] = {"", "Simple O(n²)", "Medium O(n√n)",
-		"Complex O(n log n)"};
+	static const char *const names[] = {"O(n²)", "O(n²)", "O(n√n)",
+		"O(n log n)"};
 	ft_putstr_fd("[bench] strategy: ", 2);
 	if (ps->adaptive == 1)
 	{
