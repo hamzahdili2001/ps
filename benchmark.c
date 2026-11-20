@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 13:37:30 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/20 17:51:04 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 21:29:21 by r03b             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,25 @@ static void	print_disorder(t_ps *ps)
 	ft_putnbr_fd(fraction, 2);
 	ft_putstr_fd("%\n", 2);
 }
-
 static void	print_strategy(t_ps *ps)
 {
-	static const char *const names[] = {"O(n²)", "O(n²)", "O(n√n)",
+	static const char *const strategy_names[] = {"Simple", "Simple", "Medium",
+		"Complex"};
+	static const char *const complexities[] = {"O(n²)", "O(n²)", "O(n√n)",
 		"O(n log n)"};
 	ft_putstr_fd("[bench] strategy: ", 2);
 	if (ps->adaptive == 1)
 	{
 		ft_putstr_fd("Adaptive", 2);
 		ft_putstr_fd(" / ", 2);
+		ft_putstr_fd(complexities[ps->mode], 2);
 	}
-	ft_putstr_fd(names[ps->mode], 2);
+	else
+	{
+		ft_putstr_fd(strategy_names[ps->mode], 2);
+		ft_putstr_fd(" / ", 2);
+		ft_putstr_fd(complexities[ps->mode], 2);
+	}
 	ft_putstr_fd("\n", 2);
 }
 
