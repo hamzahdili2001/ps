@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:40:43 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/20 13:25:59 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 16:09:50 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	sort_dispatch(t_ps *ps)
 {
+	ps->disorder = compute_disorder(ps);
 	if (ps->mode == MODE_ADAPTIVE)
 	{
 		if (mode_adaptive(ps) < 0)
@@ -31,6 +32,8 @@ int	sort_dispatch(t_ps *ps)
 		if (sort_complex(ps) < 0)
 			return (-1);
 	}
+	if (ps->bench == 1)
+		print_bench(ps);
 	return (0);
 }
 

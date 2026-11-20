@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:48:58 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/20 15:15:21 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 16:19:52 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ typedef struct s_ps
 	size_t	op_counts[OP_COUNT];
 	int		silent;
 	double	disorder;
-	int		inversion;
 }			t_ps;
 // init
 void		ps_init(t_ps *ps);
@@ -109,10 +108,12 @@ void		stack_swap(t_stack *s);
 void		stack_rotate(t_stack *s);
 void		stack_rrotate(t_stack *s);
 // algo
+double		compute_disorder(t_ps *ps);
 int			is_sorted(t_ps *ps);
 int			assign_ranks(t_stack *a);
 void		sort_simple(t_ps *ps);
 int			sort_medium(t_ps *ps);
 int			sort_complex(t_ps *ps);
 int			mode_adaptive(t_ps *ps);
+void		print_bench(t_ps *ps);
 #endif
