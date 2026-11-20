@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:40:43 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/20 16:38:29 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 17:19:41 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,20 @@ int	sort_dispatch(t_ps *ps)
 		if (mode_adaptive(ps) < 0)
 			return (-1);
 	}
-	if (ps->mode == MODE_SIMPLE)
-		sort_simple(ps);
-	if (ps->mode == MODE_MEDIUM)
+	else
 	{
-		if (sort_medium(ps) < 0)
-			return (-1);
-	}
-	if (ps->mode == MODE_COMPLEX)
-	{
-		if (sort_complex(ps) < 0)
-			return (-1);
+		if (ps->mode == MODE_SIMPLE)
+			sort_simple(ps);
+		if (ps->mode == MODE_MEDIUM)
+		{
+			if (sort_medium(ps) < 0)
+				return (-1);
+		}
+		if (ps->mode == MODE_COMPLEX)
+		{
+			if (sort_complex(ps) < 0)
+				return (-1);
+		}
 	}
 	if (ps->bench == 1)
 		print_bench(ps);
@@ -52,7 +55,11 @@ int	main(int ac, char **av)
 		return (-1);
 	}
 	if (is_sorted(ps) == 0)
+	{
+		if (ps->bench == 1)
+			print_bench(ps);
 		return (free_ps(ps), 0);
+	}
 	if (sort_dispatch(ps) < 0)
 		return (free_ps(ps), 0);
 	return (free_ps(ps), 0);

@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 13:37:30 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/20 16:39:56 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 17:27:22 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ static void	print_disorder(t_ps *ps)
 
 static void	print_strategy(t_ps *ps)
 {
-	static const char *const names[] = {"NONE", "Simple O(n)", "Adaptive",
-		"Medium O(n√n)", "Complex O(n log n)"};
+	static const char *const names[] = {"", "Simple O(n)", "Medium O(n√n)",
+		"Complex O(n log n)"};
 	ft_putstr_fd("[bench] strategy: ", 2);
 	if (ps->adaptive == 1)
 	{
