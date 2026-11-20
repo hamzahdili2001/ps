@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:40:43 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/20 13:16:20 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 13:25:59 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	sort_dispatch(t_ps *ps)
 int	main(int ac, char **av)
 {
 	t_ps	*ps;
-	int		i;
 
 	ps = malloc(sizeof(t_ps));
 	if (!ps)
