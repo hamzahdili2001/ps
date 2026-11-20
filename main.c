@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:40:43 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/20 11:32:13 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 13:16:20 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 int	sort_dispatch(t_ps *ps)
 {
+	if (ps->mode == MODE_ADAPTIVE)
+	{
+		if (mode_adaptive(ps) < 0)
+			return (-1);
+	}
 	if (ps->mode == MODE_SIMPLE)
 		sort_simple(ps);
 	if (ps->mode == MODE_MEDIUM)
