@@ -6,7 +6,7 @@
 /*   By: hhdili <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 09:58:57 by hhdili            #+#    #+#             */
-/*   Updated: 2026/11/20 17:01:26 by hhdili           ###   ########.fr       */
+/*   Updated: 2026/11/20 17:03:45 by hhdili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	parse_flags(int ac, char **av, t_ps *ps)
 		}
 		i++;
 	}
-	if (ps->mode == MODE_NONE)
+	if (ps->mode == MODE_NONE && ps->adaptive == 0)
 		ps->adaptive = 1;
 	return (i);
 }
